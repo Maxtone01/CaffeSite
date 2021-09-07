@@ -1,0 +1,87 @@
+{% extends 'base_template.html' %}
+{% load static %}
+{% block content %}
+    <div class="category-description">
+        <h1 class="salads">{{ category }}</h1>
+        {% csrf_token %}
+        {% for product in product %}
+         <div class="product-wrapper">
+            <div id="autoWidth" class="cs-hidden">
+                <div class="item-a">
+                    {% if product.category == 'Pizza' %}
+                    <div class="box">
+                      <div class="slide-img">
+                          <a href="{{ product.get_absolute_url }}"><img src="{{ MEDIA_URL }}{{ product.image.url }}" alt=" "></a>
+                      </div>
+                        <div class="detail-box" id="{{ product.id }}">
+                            <div class="type">
+                                <p id="p_name" class="p_name">{{ product.name }}</p>
+                                <div>
+                                    <button class="switcher" id="{{ product.id }}">Маленька</button>
+                                </div>
+                                <p class="weight" id="{{ product.id }}">{{ product.weight }} см</p>
+                                <div class="text-description">{{ product.description }}</div>
+                                <p id="{{ product.id }}" class="price">{{ product.price }} UAH</p>
+                                <button data-action="add" class="buy-btn" id="{{ product.id }}">
+                                    До кошика
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    {% elif product.category == 'Snacks' %}
+                    <div class="box">
+                      <div class="slide-img">
+                          <a href="{{ product.get_absolute_url }}"><img src="{{ MEDIA_URL }}{{ product.image.url }}" alt=" "></a>
+                      </div>
+                        <div class="detail-box" id="{{ product.id }}">
+                            <div class="type">
+                                <p id="p_name" class="p_name">{{ product.name }}</p>
+                                <p class="weight" id="{{ product.id }}">{{ product.weight }} см</p>
+{#                                <div>#}
+{#                                    <button> BBQ 30 грам</button>#}
+{#                                    <button> Сирний 30 грам</button>#}
+{#                                    <button> Світ-Чілі 30 грам</button>#}
+{#                                    <button> Тар-Тар 30 грам</button>#}
+{#                                    <button> Часниковий 30 грам</button>#}
+{#                                    <button> Майонез 30 грам</button>#}
+{#                                    <button> Кетчуп 30 грам</button>#}
+{#                                    <button> Американскьа гірчиця 30 грам</button>#}
+{#                                </div>#}
+                                <div class="text-description">{{ product.description }}</div>
+                                <p id="{{ product.id }}" class="price">{{ product.price }} UAH</p>
+                                <button data-action="add" class="buy-btn" id="{{ product.id }}">
+                                    До кошика
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                        <div class="box">
+                      <div class="slide-img">
+                          <a href="{{ product.get_absolute_url }}"><img src="{{ MEDIA_URL }}{{ product.image.url }}" alt=" "></a>
+                      </div>
+                        <div class="detail-box">
+                            <div class="type">
+                                <p>{{ product.name }}</p>
+                                <p>{{ product.weight }} г</p>
+                                <div class="text-description">{{ product.description }}</div>
+                                <p class="price">{{ product.price }}UAH</p>
+                                <button id="{{ product.id }}" data-action="add" class="buy-btn">
+                                    До кошика
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+{#                    {% if product.category == 'Pizza' %}#}
+{#                                    <label class="switch">#}
+{#                                      <input type="checkbox">#}
+{#                                      <span class="slider round" style="width: 60px"></span>#}
+{#                                    </label>#}
+{#                                {% endif %}#}
+                </div>
+            </div>
+         </div>
+        {% endfor %}
+        </div>
+{% endblock %}

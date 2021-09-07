@@ -1,0 +1,59 @@
+{% extends 'base_template.html' %}
+{% load static %}
+{% block content %}
+    <img class="bg-image" src="{% static 'images/background.jpg' %}" alt="Background images">
+    {% csrf_token %}
+    <div class="ant-carousel">
+        <div class="ant-carousel-hider">
+            <div class="ant-carousel-list">
+                {% for product in product %}
+                    {% if forloop.counter <= 4 %}
+                        <div class="ant-carousel-element">
+                            <div class="slider-items">
+                                <div class="box">
+                                    <div class="slide-img">
+                                        <a href="{{ product.get_absolute_url }}"><img src="{{ MEDIA_URL }}{{ product.image.url }}" alt=" "></a>
+                                    </div>
+                                    <div class="detail-box">
+                                        <div class="type">
+                                                <p>{{ product.name }}</p>
+                                                <div class="text-description">{{ product.description }}</div>
+                                                <p>{{ product.weight }} г.</p>
+                                                <p class="price">{{ product.price }} UAH</p>
+                                                <button id="{{ product.id }}" data-action="add" class="buy-btn">
+                                                    До кошика
+                                                </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    <div class="ant-carousel-arrow-left"></div>
+    <div class="ant-carousel-arrow-right"></div>
+    <div class="ant-carousel-dots"></div>
+    </div>
+    <div class="geolocation">
+        <div id="map" class="map">
+            <h1>Ми на мапі: </h1>
+            <a href="https://goo.gl/maps/uKUtbZRnixYovQEh9">
+                <img src="{% static 'images/map.png' %}" alt="Map">
+            </a>
+        </div>
+    </div>
+
+{#    <script#}
+{#      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYHzeYnc8PLLUFql9m6cnpIfLbs9eXdcU&callback=initMap&libraries=&v=weekly"#}
+{#      async>#}
+{#    let map;#}
+{##}
+{#    function initMap() {#}
+{#        map = new google.maps.Map(document.getElementById("map"), {#}
+{#            center: { lat: -34.397, lng: 150.644 },#}
+{#            zoom: 8,#}
+{#  });#}
+{#    </script>#}
+{% endblock %}

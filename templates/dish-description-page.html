@@ -1,0 +1,25 @@
+{% extends 'base_template.html' %}
+{% load static %}
+{% block content %}
+{#    <img src="{% static 'images/icons/background-descr.jpg' %}" class="bg-pic">#}
+    {% csrf_token %}
+    <div class="descr-wrapper">
+        <div class="product-container">
+            <div class="product-image">
+                <img style="height: 500px; width: 600px" src="{{ MEDIA_URL }}{{ product.image.url }}" alt=" ">
+            </div>
+            <div class="product-description">
+                <h1>{{ product.name }}</h1>
+                <p>{{ product.weight }} г</p>
+                <span>
+                    {{ product.description }}
+                </span>
+                <div class="order-section">
+                <button data-product="{{ product.id }}" data-action="add" class="buy-btn">
+                    До кошика
+                </button>
+            </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

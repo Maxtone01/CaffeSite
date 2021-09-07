@@ -1,0 +1,104 @@
+.page{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.box{
+    width: 300px;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.detail-box{
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+.type{
+    display: flex;
+    flex-direction: column;
+}
+
+.type a{
+    color: #222222;
+    margin: 5px 0;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding-right: 8px;
+}
+
+.price{
+    margin-top: 60px;
+}
+
+.buy-btn{
+    background-color: #fff;
+    border-color: darkgreen;
+    font-size: 100%;
+    width: 65%;
+    height: 60px;
+}
+
+button.buy-btn:hover{
+    background-color: darkgreen;
+    color: white;
+    animation: fade 1s;
+    }
+
+.price{
+    color: #333333;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.slide-img{
+    height: 300px;
+}
+
+.slide-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-sizing: border-box;
+}
+
+.wrapper{
+    width: 700px;
+}
+.slider-container{
+    overflow: hidden;
+    background-color: pink;
+}
+.slider-track{
+    display: flex;
+    background-color: yellow;
+}
+
+.slider-buttons{
+    text-align: center;
+}
+
+.slider-items{
+    min-width: 100px;
+    height: 600px;
+}
+
+.slider-items:nth-child(3n+1){
+    background-color: red;
+}
+
+.slider-items:nth-child(3n+2){
+    background-color: green;
+}
+
+.slider-items:nth-child(3n+3){
+    background-color: blue;
+}

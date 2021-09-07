@@ -1,0 +1,8 @@
+{% extends 'base_template.html' %}
+{% block content %}
+    {% csrf_token %}
+    {% for sauce in sauces %}
+        <img src="{{ MEDIA_URL }}{{ sauce.image.url }}">
+        <p>{{ sauce.name }}</p>
+    {% endfor %}
+{% endblock %}
